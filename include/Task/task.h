@@ -1,5 +1,5 @@
-#ifndef LIST_H
-#define LIST_H
+#ifndef TASK_H
+#define TASK_H
 
 #include <string>
 
@@ -15,15 +15,16 @@ class Task {
     public:
 
         Task();
-        void setId(long long id);
+        
+        void setId(long long idSet);
         long long getId();
-        void setDescription(std::string description);
+        void setDescription(std::string descriptionSet);
         std::string getDescription();
-        void setStatus(std::string status);
+        void setStatus(std::string statusSet);
         std::string getStatus();
-        void setCreatedAt(std::string createdAt);
+        void setCreatedAt();
         std::string getCreatedAt();
-        void setUpdatedAt(std::string updatedAt);
+        void setUpdatedAt(std::string updatedAtSet);
         std::string getUpdatedAt(); 
         
         bool createTask();
