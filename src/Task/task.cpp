@@ -48,6 +48,13 @@ bool Task::createTask(){
     newData["Description"] = getDescription();
     newData["Status"] = getStatus();
     newData["CreateAt"] = getCreatedAt();
-    newData["UptadeAt"] = newData["CreateAt"];
+    newData["UptadeAt"] = getCreatedAt();
+
+    std:: ifstream jsonFile("save")
  }
+
+ void Task::saveJson(){
+        json:: database = 
+ }
+
  //Criar funcao para armazenar esse JSON
