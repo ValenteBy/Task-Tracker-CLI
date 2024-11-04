@@ -37,14 +37,13 @@ int main(int argc, char* argv[]){
                 //cerr
             }
         }
-        else if(argv[2] == "upadete"){
-            //action update for task
-            try{
-
-            } catch{
-                //cerr
-                //return 1;
-            }
+        else if(argv[2] == "update")
+        {
+            ///Stoi(number) try catch 
+        }
+        else if(argv[2] == "delete")
+        {
+            //Stoi(number) try catch 
         }
     }
 
