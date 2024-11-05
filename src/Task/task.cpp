@@ -42,6 +42,15 @@ std::string Task::getUpdatedAt(){
     return updatedAt;
 }
 
+json ToJSON() const {
+    return json{
+        {"Id", getId()},
+        {"Description", getDescription()},
+        {"Status", getStatus()},
+        {}
+    }
+}
+
 bool Task::createTask(){
     json newData;
     newData["Id"] = 1;
