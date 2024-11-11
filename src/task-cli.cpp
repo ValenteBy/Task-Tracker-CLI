@@ -21,7 +21,7 @@ int main(int argc, char* argv[]){
         }
         else if(argv[2] == "--version" || argv[2] == "-v")
         {
-            // Printar version
+            std::cerr << "\nVersion Alpha 0.1\n";
         }
         else if(argv[2] == "--author" || argv[2] || "MIAU")
         {
@@ -52,7 +52,8 @@ int main(int argc, char* argv[]){
         }
     }
 
-    if((argc == 3) && (argv[3] != "update")){
+    if((argc == 3) && (argv[3] != "update"))
+    {
         if(argv[2] == "mark-in-progress")
         {
             // Recebe ID e modifica
