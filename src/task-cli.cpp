@@ -86,9 +86,15 @@ int main(int argc, char* argv[]){
     if(argc >= 3)
     {
         // Criar function para pegar o resto de dos argv
+        
         if(argv[2] == "add")
         {
-
+            std::string name_task;
+            for(int i = 3; i <= argc; i++){
+                if(argv[i].find(_STRING_("\"")))
+                {
+                }
+            }
         }
         else if(argv[2] == "update")
         {
