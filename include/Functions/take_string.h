@@ -4,7 +4,7 @@
 #include <string>
 
 namespace taskCli {
-    std::string get_string(std::string *str);
+    void taskCli::get_string(std::string& name_task, std::string& temp_string);
 }
 
 #endif

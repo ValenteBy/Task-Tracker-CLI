@@ -1,3 +1,5 @@
+#include <include/Functions/take_string.h>
+
 #include <iostream>
 #include <string>
 
@@ -90,9 +92,27 @@ int main(int argc, char* argv[]){
         if(argv[2] == "add")
         {
             std::string name_task;
-            for(int i = 3; i <= argc; i++){
-                if(argv[i].find(_STRING_("\"")))
+            bool is_string = false;
+            for(int i = 3; i < argc; i++){
+                std::string temp_string = argv[i];
+                if('\"' == temp_string[0])
                 {
+                    is_string = 1;
+                    // criar function pra isso
+                    get
+                    for(int c = 0; i < temp_string.size(); i++)
+                    {
+                        name_task.push_back(temp_string[i]);
+                    }
+                    name_task.push_back(' ');
+                }
+                else if(is_string)
+                {
+                    for(int c = 0; c < temp_string.size(); c++)
+                    {
+                        name_task.push_back(temp_string[i]);
+                    }
+                    name_task.push_back(' ');
                 }
             }
         }
