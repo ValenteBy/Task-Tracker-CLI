@@ -1,4 +1,5 @@
 #include <include/Functions/take_string.h>
+#include <include/Functions/take_number.h>
 
 #include <iostream>
 #include <string>
@@ -54,7 +55,7 @@ int main(int argc, char* argv[]){
         }
     }
 
-    if((argc == 3) && (argv[3] != "update"))
+    if(argc == 3)
     {
         if(argv[2] == "mark-in-progress")
         {
@@ -85,12 +86,13 @@ int main(int argc, char* argv[]){
         }
     }
 
-    if(argc >= 3)
+    if(argc > 3)
     {
         // Criar function para pegar o resto de dos argv
         
         if(argv[2] == "add")
         {
+
             std::string name_task;
             bool is_string = false;
             for(int i = 3; i < argc; i++){
@@ -98,27 +100,44 @@ int main(int argc, char* argv[]){
                 if('\"' == temp_string[0])
                 {
                     is_string = 1;
-                    // criar function pra isso
-                    get
-                    for(int c = 0; i < temp_string.size(); i++)
-                    {
-                        name_task.push_back(temp_string[i]);
-                    }
-                    name_task.push_back(' ');
+                    // Trocar o nome dessa funçao
+                    taskCli::get_string(name_task, temp_string);                    
                 }
                 else if(is_string)
                 {
-                    for(int c = 0; c < temp_string.size(); c++)
-                    {
-                        name_task.push_back(temp_string[i]);
-                    }
-                    name_task.push_back(' ');
+                    taskCli::get_string(name_task, temp_string);
                 }
             }
         }
         else if(argv[2] == "update")
         {
-            
+            std::string temp_string = argv[3];
+            int id_task;
+            if(taskCli::is_number(temp_string))
+            {
+                id_task = stoi(temp_string);
+            }
+            else
+            {
+                std::cerr << "ID invalid" << std::endl 
+                          << "Example: " << "add " << "1" << "\"my name task\"" << std::endl;
+                return 1;
+            }
+
+            std::string name_task;
+            bool is_string = false;
+            for(int i = 4; i < argc; i++){
+                std::string temp_string = argv[i];
+                if('\"' == temp_string[0])
+                {
+                    is_string = 1;
+                    // Trocar o nome dessa funçao
+                    taskCli::get_string(name_task, temp_string);                    
+                }
+                else if(is_string)
+                {
+                    taskCli::get_string(name_task, temp_string);
+                }
         }
     } 
 

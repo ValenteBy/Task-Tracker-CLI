@@ -1,5 +1,5 @@
-#ifndef ADD_H
-#define ADD_H
+#ifndef TAKE_STRING_H
+#define TAKE_STRING_H
 
 #include <string>
 
