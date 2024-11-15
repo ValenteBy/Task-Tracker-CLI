@@ -59,14 +59,47 @@ int main(int argc, char* argv[]){
     {
         if(argv[2] == "mark-in-progress")
         {
+            std::string temp_string = argv[3];
+            int id_task;
+            if(taskCli::is_number(temp_string))
+            {
+                id_task = stoi(temp_string);
+            }
+            else
+            {
+                std::cerr << "ID invalid" << std::endl;
+                return 1;
+            }
             // Recebe ID e modifica
         }
         else if(argv[2] == "mark-done")
         {
+            std::string temp_string = argv[3];
+            int id_task;
+            if(taskCli::is_number(temp_string))
+            {
+                id_task = stoi(temp_string);
+            }
+            else
+            {
+                std::cerr << "ID invalid" << std::endl;
+                return 1;
+            }
             // Recebe ID e marca como feita
         }
         else if(argv[2] == "delete")
         {
+            std::string temp_string = argv[3];
+            int id_task;
+            if(taskCli::is_number(temp_string))
+            {
+                id_task = stoi(temp_string);
+            }
+            else
+            {
+                std::cerr << "ID invalid" << std::endl;
+                return 1;
+            }
             // Criar function para tratar entrada mau recebida de inteiro
         }
         else if(argv[2] == "list")
