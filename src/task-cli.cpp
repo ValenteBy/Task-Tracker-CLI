@@ -1,3 +1,6 @@
+#include <include/Functions/take_string.h>
+#include <include/Functions/take_number.h>
+
 #include <iostream>
 #include <string>
 
@@ -21,7 +24,7 @@ int main(int argc, char* argv[]){
         }
         else if(argv[2] == "--version" || argv[2] == "-v")
         {
-            // Printar version
+            std::cerr << "\nVersion Alpha 0.1\n";
         }
         else if(argv[2] == "--author" || argv[2] || "MIAU")
         {
@@ -52,17 +55,51 @@ int main(int argc, char* argv[]){
         }
     }
 
-    if((argc == 3) && (argv[3] != "update")){
+    if(argc == 3)
+    {
         if(argv[2] == "mark-in-progress")
         {
+            std::string temp_string = argv[3];
+            int id_task;
+            if(taskCli::is_number(temp_string))
+            {
+                id_task = stoi(temp_string);
+            }
+            else
+            {
+                std::cerr << "ID invalid" << std::endl;
+                return 1;
+            }
             // Recebe ID e modifica
         }
         else if(argv[2] == "mark-done")
         {
+            std::string temp_string = argv[3];
+            int id_task;
+            if(taskCli::is_number(temp_string))
+            {
+                id_task = stoi(temp_string);
+            }
+            else
+            {
+                std::cerr << "ID invalid" << std::endl;
+                return 1;
+            }
             // Recebe ID e marca como feita
         }
         else if(argv[2] == "delete")
         {
+            std::string temp_string = argv[3];
+            int id_task;
+            if(taskCli::is_number(temp_string))
+            {
+                id_task = stoi(temp_string);
+            }
+            else
+            {
+                std::cerr << "ID invalid" << std::endl;
+                return 1;
+            }
             // Criar function para tratar entrada mau recebida de inteiro
         }
         else if(argv[2] == "list")
@@ -82,16 +119,58 @@ int main(int argc, char* argv[]){
         }
     }
 
-    if(argc >= 3)
+    if(argc > 3)
     {
         // Criar function para pegar o resto de dos argv
+        
         if(argv[2] == "add")
         {
 
+            std::string name_task;
+            bool is_string = false;
+            for(int i = 3; i < argc; i++){
+                std::string temp_string = argv[i];
+                if('\"' == temp_string[0])
+                {
+                    is_string = 1;
+                    // Trocar o nome dessa funçao
+                    taskCli::get_string(name_task, temp_string);                    
+                }
+                else if(is_string)
+                {
+                    taskCli::get_string(name_task, temp_string);
+                }
+            }
         }
         else if(argv[2] == "update")
         {
-            
+            std::string temp_string = argv[3];
+            int id_task;
+            if(taskCli::is_number(temp_string))
+            {
+                id_task = stoi(temp_string);
+            }
+            else
+            {
+                std::cerr << "ID invalid" << std::endl 
+                          << "Example: " << "add " << "1" << "\"my name task\"" << std::endl;
+                return 1;
+            }
+
+            std::string name_task;
+            bool is_string = false;
+            for(int i = 4; i < argc; i++){
+                std::string temp_string = argv[i];
+                if('\"' == temp_string[0])
+                {
+                    is_string = 1;
+                    // Trocar o nome dessa funçao
+                    taskCli::get_string(name_task, temp_string);                    
+                }
+                else if(is_string)
+                {
+                    taskCli::get_string(name_task, temp_string);
+                }
         }
     } 
 
