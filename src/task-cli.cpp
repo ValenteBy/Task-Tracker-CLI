@@ -9,7 +9,7 @@ int main(int argc, char* argv[]){
         return 1; // retornar erro 
     }
     
-    if(argc == 2)
+    else if(argc == 2)
     {
         if(argv[2] == "list")
         {
@@ -52,7 +52,7 @@ int main(int argc, char* argv[]){
         }
     }
 
-    if((argc == 3) && (argv[3] != "update")){
+    else if((argc == 3) && (argv[3] != "update")){
         if(argv[2] == "mark-in-progress")
         {
             // Recebe ID e modifica
@@ -82,7 +82,7 @@ int main(int argc, char* argv[]){
         }
     }
 
-    if(argc >= 3)
+    else if(argc >= 3)
     {
         // Criar function para pegar o resto de dos argv
         if(argv[2] == "add")

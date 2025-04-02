@@ -8,3 +8,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 add_executable(main src/main.cpp)
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
+
+find_package(nlohmann_json REQUIRED)
+target_link_libraries(seu_projeto PRIVATE nlohmann_json::nlohmann_json)
